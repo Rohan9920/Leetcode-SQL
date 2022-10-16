@@ -68,9 +68,17 @@ INSERT INTO employee VALUES (3,3,60);
 INSERT INTO employee VALUES (1,4,60);
 INSERT INTO employee VALUES (3,4,70);
 
---Solution:
+--Solution 1:
 
 select id, month, salary from 
 (select id,month, row_number() over (partition by id order by month desc) rn, sum(salary) over(partition by id order by month) as salary from employee) 
 where rn!=1
+order by id, month desc;
+
+-- Solution 2: (Using lead and lag functions)
+
+select id, month, salary+lag(lg,1,0) over (partition by id order by month) as salary  from
+(select id,month,salary, lead(salary,1) over (partition by id order by month) as ld,salary + lag(salary,1,0) over (partition by id order by month) as lg
+from employee)
+where ld is not null
 order by id, month desc;
