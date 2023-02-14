@@ -64,7 +64,7 @@ select business_id from
 group by business_id)
 where sm>1;
 
--- Solution 2:
+-- Solution 2: (Using joins)
 
 with temp as 
 (select  event_type ,sum(occurences)/count(event_type) as calc from events group by event_type)
