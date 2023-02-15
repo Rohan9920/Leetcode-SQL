@@ -99,7 +99,7 @@ select id,name from
 (select id, name, dt from temp2 group by id,name,dt having count(id)>=5);
 
 -- Solution 2: (Using lead function)
--- Note: date_5 check is important to account for missing days
+-- Note: date_5 check is important to account for missing days.
 
 with t1 as (
 select id,login_date,
