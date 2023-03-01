@@ -33,8 +33,6 @@
 
 -- DDL Scripts:
 
-
-
 CREATE TABLE Employee
     (Id int, Name varchar2(5), Salary int, DepartmentId int)
 ;
