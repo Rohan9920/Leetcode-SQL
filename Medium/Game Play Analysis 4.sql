@@ -67,7 +67,7 @@ with temp as
 (select player_id, row_number() over (partition by player_id order by event_date) as dt, lead(event_date,1,event_date)over (partition by player_id order by event_date) -event_date as ld from activity)
 (select sum(case when dt=1 and ld=1 then 1 else 0 end)/count(distinct player_id) as sm from temp );
 
--- Solution 2:
+-- Solution 2: (Optimized)
 
 with temp as
 (select player_id, min(event_date) over(partition by player_id order by event_date), CASE WHEN event_date - min(event_date) over(partition by player_id order by event_date) = 1 THEN 1 else 0 END as consecutive from activity)
