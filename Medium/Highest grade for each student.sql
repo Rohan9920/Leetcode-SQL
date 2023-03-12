@@ -60,7 +60,6 @@ INSERT ALL
 SELECT * FROM dual
 ;
 
-
 -- Solution
 
 with temp as
