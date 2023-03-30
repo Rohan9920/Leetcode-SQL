@@ -78,6 +78,7 @@ INSERT ALL
 SELECT * FROM dual
 ;
 
+
 CREATE TABLE Employee
     (employee_id int, name varchar2(6), experience_years int)
 ;
