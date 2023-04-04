@@ -28,7 +28,7 @@ INSERT ALL
 SELECT * FROM dual
 ;
 
--- Solution 1: (Using OFFSET. Available after oracle 12c)
+-- Solution 1: (Using OFFSET. Available only after oracle 12c)
 
 with temp as
 (select visited_on, sum(amount) as amount from customer group by visited_on order by visited_on)
