@@ -65,7 +65,6 @@
 -- | 40         | Chicago FC   | 0             |
 -- +------------+--------------+---------------+
 
-
 -- DDL Scripts:
 
 CREATE TABLE Teams
@@ -85,7 +84,6 @@ INSERT ALL
          VALUES (50, 'Toronto FC')
 SELECT * FROM dual
 ;
-
 
 CREATE TABLE Matches
     (match_id int, host_team int, guest_team int, host_goals int, guest_goals int)
