@@ -102,7 +102,7 @@ round(coalesce(((sum(clicks)/(sum(clicks) +sum(views)))*100),0),2) end as ctr
 from temp1
 group by ad_id;
 
-Solution 3:
+--Solution 3:
 
 select ad_id, round(coalesce((clk/(clk+view_cnt))*100,0),2) as ctr from 
 (select ad_id, (select count(*) from ads where action = 'Clicked' and ad_id = a.ad_id group by  ad_id) clk,(select count(*) from ads where action = 'Viewed' and ad_id = a.ad_id group by  ad_id) view_cnt from
