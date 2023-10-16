@@ -18,6 +18,7 @@
 -- | I       | Math       |
 -- +---------+------------+
 
+-- DDL statement
 
 CREATE TABLE Courses
     (student varchar2(1), class varchar2(8))
